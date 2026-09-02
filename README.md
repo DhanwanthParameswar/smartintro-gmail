@@ -14,7 +14,20 @@ Name resolution cascade:
 2. **Your mailbox** — the display name from the most recent email you received from that address (their `From:` header).
 3. **Address parsing** — `sarah.johnson@example.com` → `Sarah`.
 
-Role accounts (`support@`, `no-reply@`, ...) and recipients with no resolvable name are skipped and listed as "Not greeted".
+Role accounts (`support@`, `no-reply@`, ...) and recipients with no resolvable name are skipped and listed as "Not greeted". Use the **Refresh names** button on the compose card to re-resolve after someone new lands in your contacts or mailbox.
+
+### Greeting settings
+
+The add-on homepage (SmartIntro icon in the main Gmail sidebar) lets you configure the greeting:
+
+- **Template** — e.g. `Hey {names}!`, `Hi {names},`, or omit `{names}` entirely (`Hello team!`)
+- **Separator between names** — any text: `and`, `&`, `+` (punctuation separators join tightly; `and` keeps the Oxford comma)
+
+Settings are saved per user and applied automatically in the compose card. A live examples panel previews the result for 1, 2, and 5+ people.
+
+### Performance
+
+Resolved names are cached in `UserProperties` (~130 entries, 90-day TTL), so the compose card renders instantly after the first look-up of a recipient. Unresolved addresses are retried automatically after 7 days instead of blocking every open.
 
 ## Files
 
